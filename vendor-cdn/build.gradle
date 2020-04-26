@@ -1,0 +1,22 @@
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    upyunVersion = '3.16'
+    tencentCOSVersion = '4.7'
+
+    okHttpVersion = "3.10.0"
+}
+
+dependencies {
+    // upyun and tencent-cos storage sdk
+    compile("com.upyun:java-sdk:$upyunVersion")
+    compile("com.qcloud:cos_api:$tencentCOSVersion") {
+        exclude module: 'slf4j-log4j12'
+    }
+    compile 'com.qiniu:qiniu-java-sdk:7.2.11'
+
+}

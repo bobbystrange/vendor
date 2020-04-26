@@ -1,0 +1,4 @@
+rootProject.name = 'vendor'
+
+include "vendor-cdn"
+include 'vendor-weixin'

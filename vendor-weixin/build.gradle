@@ -1,0 +1,7 @@
+ext {
+    commonsCodecVersion = "1.12"
+}
+
+dependencies {
+    implementation "commons-codec:commons-codec:$commonsCodecVersion"
+}
