@@ -24,7 +24,7 @@ public class ExcelRichStyle extends ExcelStyle {
 
     private short bgColor;
     private short fgColor;
-    private FillPatternType fillPatternType;
+    private FillPatternType fillPattern;
 
     private BorderStyle borderBottom;
     private BorderStyle borderLeft;
@@ -64,7 +64,7 @@ public class ExcelRichStyle extends ExcelStyle {
 
         if (bgColor != 0) style.setFillBackgroundColor(bgColor);
         if (fgColor != 0) style.setFillForegroundColor(fgColor);
-        if (fillPatternType != null) style.setFillPattern(fillPatternType);
+        if (fillPattern != null) style.setFillPattern(fillPattern);
 
         if (borderBottom != null) style.setBorderBottom(borderBottom);
         if (borderLeft != null) style.setBorderLeft(borderLeft);

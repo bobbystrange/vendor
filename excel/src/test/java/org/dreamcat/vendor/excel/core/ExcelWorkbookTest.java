@@ -11,15 +11,15 @@ import java.io.File;
 public class ExcelWorkbookTest {
 
     @Test
-    public void export() throws Exception {
+    public void exportExcelWorkbook() throws Exception {
         var sheet = new ExcelSheet("sheet1");
-        sheet.getCells().add(new ExcelRichCell(new ExcelStringContent("A1:B2"), 0, 0, 2, 2));
-        sheet.getCells().add(new ExcelRichCell(new ExcelStringContent("C1:C2"), 0, 2, 2, 1));
-        sheet.getCells().add(new ExcelRichCell(new ExcelStringContent("D1:D2"), 0, 3, 2, 1));
-        sheet.getCells().add(new ExcelRichCell(new ExcelStringContent("A3:B3"), 2, 0, 1, 2));
+        sheet.getCells().add(new ExcelCell(new ExcelStringContent("A1:B2"), 0, 0, 2, 2));
+        sheet.getCells().add(new ExcelCell(new ExcelStringContent("C1:C2"), 0, 2, 2, 1));
+        sheet.getCells().add(new ExcelCell(new ExcelStringContent("D1:D2"), 0, 3, 2, 1));
+        sheet.getCells().add(new ExcelCell(new ExcelStringContent("A3:B3"), 2, 0, 1, 2));
         sheet.getCells().add(new ExcelCell(new ExcelStringContent("C3"), 2, 2));
         sheet.getCells().add(new ExcelCell(new ExcelStringContent("D3"), 2, 3));
-        sheet.getCells().add(new ExcelRichCell(new ExcelStringContent("A4:B4"), 3, 0, 1, 2));
+        sheet.getCells().add(new ExcelCell(new ExcelStringContent("A4:B4"), 3, 0, 1, 2));
         sheet.getCells().add(new ExcelCell(new ExcelStringContent("C4"), 3, 2));
         sheet.getCells().add(new ExcelCell(new ExcelStringContent("D4"), 3, 3));
 
@@ -29,7 +29,7 @@ public class ExcelWorkbookTest {
     }
 
     @Test
-    public void from() throws Exception {
+    public void fromExcelWorkbook() throws Exception {
         var book = ExcelWorkbook.from(new File("/Users/tuke/Downloads/book.xlsx"));
 
         var sheets = book.getSheets();

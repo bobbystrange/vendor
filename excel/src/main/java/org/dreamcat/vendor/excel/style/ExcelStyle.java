@@ -31,7 +31,7 @@ public class ExcelStyle {
 
             excelRichStyle.setBgColor(style.getFillBackgroundColor());
             excelRichStyle.setFgColor(style.getFillForegroundColor());
-            excelRichStyle.setFillPatternType(style.getFillPattern());
+            excelRichStyle.setFillPattern(style.getFillPattern());
 
             excelRichStyle.setBorderBottom(style.getBorderBottom());
             excelRichStyle.setBorderLeft(style.getBorderLeft());

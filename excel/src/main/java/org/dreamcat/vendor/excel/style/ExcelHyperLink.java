@@ -1,6 +1,8 @@
 package org.dreamcat.vendor.excel.style;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.poi.common.usermodel.HyperlinkType;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Hyperlink;
@@ -12,6 +14,8 @@ import org.dreamcat.vendor.excel.core.ExcelRichCell;
  * Create by tuke on 2020/7/21
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ExcelHyperLink {
     private HyperlinkType type;
     private String address;
@@ -29,7 +33,7 @@ public class ExcelHyperLink {
         var creationHelper = workbook.getCreationHelper();
         var link = creationHelper.createHyperlink(type);
         link.setAddress(address);
-        link.setLabel(label);
+        if (label != null) link.setLabel(label);
 
         if (excelCell instanceof ExcelRichCell) {
             var richCell = (ExcelRichCell) excelCell;

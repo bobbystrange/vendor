@@ -8,7 +8,7 @@ import org.junit.Test;
 public class ExcelNumericContentTest {
 
     @Test
-    public void format() {
+    public void formatExcelNumericContent() {
         double n;
         for (int i = 1; i <= 102400; i += 16) {
             System.out.printf("%.8g\n", (double) i);
