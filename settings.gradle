@@ -1,4 +1,6 @@
 rootProject.name = 'vendor'
 
-include "vendor-cdn"
-include 'vendor-weixin'
+include "cdn"
+include 'weixin'
+include 'oauth2'
+include 'excel'

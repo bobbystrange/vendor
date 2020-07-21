@@ -1,0 +1,3 @@
+dependencies {
+    implementation('org.dreamcat:common-web:0.0.1') { changing = true }
+}
