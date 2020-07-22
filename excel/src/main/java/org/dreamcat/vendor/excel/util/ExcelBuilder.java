@@ -8,9 +8,9 @@ import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.dreamcat.common.bean.BeanCopyUtil;
-import org.dreamcat.vendor.excel.content.ExcelContent;
 import org.dreamcat.vendor.excel.content.ExcelNumericContent;
 import org.dreamcat.vendor.excel.content.ExcelStringContent;
+import org.dreamcat.vendor.excel.content.IExcelContent;
 import org.dreamcat.vendor.excel.core.ExcelCell;
 import org.dreamcat.vendor.excel.core.ExcelRichCell;
 import org.dreamcat.vendor.excel.core.ExcelSheet;
@@ -26,41 +26,41 @@ import org.dreamcat.vendor.excel.style.ExcelStyle;
 public class ExcelBuilder {
 
     public static SheetTerm sheet(String sheetName) {
-        var book = new ExcelWorkbook();
+        var book = new ExcelWorkbook<ExcelSheet>();
         var sheet = new ExcelSheet(sheetName);
         book.getSheets().add(sheet);
 
         return new SheetTerm(book, sheet);
     }
 
-    public static ExcelContent term(String string) {
+    public static IExcelContent term(String string) {
         return new ExcelStringContent(string);
     }
 
-    public static ExcelContent term(double number) {
+    public static IExcelContent term(double number) {
         return new ExcelNumericContent(number);
     }
 
     @RequiredArgsConstructor
     public static class SheetTerm {
-        private final ExcelWorkbook book;
+        private final ExcelWorkbook<ExcelSheet> book;
         private final ExcelSheet sheet;
         private transient RichSheetTerm richSheetTerm;
 
-        public SheetTerm cell(ExcelContent term, int rowIndex, int columnIndex) {
+        public SheetTerm cell(IExcelContent term, int rowIndex, int columnIndex) {
             return cell(term, rowIndex, columnIndex, 1, 1);
         }
 
-        public SheetTerm cell(ExcelContent term, int rowIndex, int columnIndex, int rowSpan, int columnSpan) {
+        public SheetTerm cell(IExcelContent term, int rowIndex, int columnIndex, int rowSpan, int columnSpan) {
             sheet.getCells().add(new ExcelCell(term, rowIndex, columnIndex, rowSpan, columnSpan));
             return this;
         }
 
-        public RichSheetTerm richCell(ExcelContent term, int rowIndex, int columnIndex) {
+        public RichSheetTerm richCell(IExcelContent term, int rowIndex, int columnIndex) {
             return richCell(term, rowIndex, columnIndex, 1, 1);
         }
 
-        public RichSheetTerm richCell(ExcelContent term, int rowIndex, int columnIndex, int rowSpan, int columnSpan) {
+        public RichSheetTerm richCell(IExcelContent term, int rowIndex, int columnIndex, int rowSpan, int columnSpan) {
             var cell = new ExcelRichCell(term, rowIndex, columnIndex, rowSpan, columnSpan);
             sheet.getCells().add(cell);
             if (richSheetTerm == null) {
@@ -69,7 +69,7 @@ public class ExcelBuilder {
             return richSheetTerm;
         }
 
-        public ExcelWorkbook build() {
+        public ExcelWorkbook<ExcelSheet> finish() {
             return book;
         }
     }

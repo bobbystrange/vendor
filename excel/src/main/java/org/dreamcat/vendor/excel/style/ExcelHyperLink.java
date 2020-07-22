@@ -7,8 +7,8 @@ import org.apache.poi.common.usermodel.HyperlinkType;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Hyperlink;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.dreamcat.vendor.excel.core.ExcelCell;
 import org.dreamcat.vendor.excel.core.ExcelRichCell;
+import org.dreamcat.vendor.excel.core.IExcelCell;
 
 /**
  * Create by tuke on 2020/7/21
@@ -29,7 +29,7 @@ public class ExcelHyperLink {
         return link;
     }
 
-    public void fill(ExcelCell excelCell, Workbook workbook, Cell cell) {
+    public void fill(IExcelCell excelCell, Workbook workbook, Cell cell) {
         var creationHelper = workbook.getCreationHelper();
         var link = creationHelper.createHyperlink(type);
         link.setAddress(address);

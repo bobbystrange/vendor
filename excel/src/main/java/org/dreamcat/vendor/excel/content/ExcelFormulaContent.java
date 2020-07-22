@@ -1,24 +1,28 @@
 package org.dreamcat.vendor.excel.content;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 
 /**
  * Create by tuke on 2020/7/21
  */
-@Getter
-@Setter
-@EqualsAndHashCode(callSuper = true)
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExcelFormulaContent extends ExcelContent {
+public class ExcelFormulaContent implements IExcelContent {
     private String formula;
 
     @Override
-    public String getText() {
-        return null;
+    public void fill(Cell cell) {
+        cell.setCellType(CellType.FORMULA);
+        cell.setCellValue(formula);
+    }
+
+    @Override
+    public String toString() {
+        return formula;
     }
 }

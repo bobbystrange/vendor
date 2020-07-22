@@ -12,7 +12,7 @@ import static org.dreamcat.vendor.excel.util.ExcelBuilder.term;
  */
 public class ExcelBuilderTest {
     @Test
-    public void export() throws Exception {
+    public void exportExcelBuilder() throws Exception {
         var book = sheet("sheet1")
                 .cell(term("A1:B2"), 0, 0, 2, 2)
                 .richCell(term("C1:C2"), 0, 2, 2, 1)
@@ -25,7 +25,7 @@ public class ExcelBuilderTest {
                 .cell(term("A4:B4"), 3, 0, 1, 2)
                 .cell(term("C4"), 3, 2)
                 .cell(term("D4"), 3, 3)
-                .build();
+                .finish();
         book.writeTo("/Users/tuke/Downloads/book.xlsx");
     }
 }

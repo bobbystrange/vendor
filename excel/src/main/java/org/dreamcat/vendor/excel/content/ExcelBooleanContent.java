@@ -1,24 +1,29 @@
 package org.dreamcat.vendor.excel.content;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 
 /**
  * Create by tuke on 2020/7/21
  */
-@Getter
-@Setter
-@EqualsAndHashCode(callSuper = true)
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExcelBooleanContent extends ExcelContent {
+public class ExcelBooleanContent implements IExcelContent {
     private boolean value;
 
     @Override
-    public String getText() {
-        return Boolean.toString(value);
+    public void fill(Cell cell) {
+        cell.setCellType(CellType.BOOLEAN);
+        cell.setCellValue(value);
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
 }

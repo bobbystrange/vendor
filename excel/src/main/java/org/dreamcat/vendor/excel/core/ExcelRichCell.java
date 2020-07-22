@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.dreamcat.vendor.excel.content.ExcelContent;
+import org.dreamcat.vendor.excel.content.IExcelContent;
 import org.dreamcat.vendor.excel.style.ExcelFont;
 import org.dreamcat.vendor.excel.style.ExcelHyperLink;
 import org.dreamcat.vendor.excel.style.ExcelStyle;
@@ -24,12 +24,12 @@ public class ExcelRichCell extends ExcelCell {
     protected ExcelHyperLink hyperLink;
 
     public ExcelRichCell(
-            ExcelContent content, int rowIndex, int columnIndex) {
+            IExcelContent content, int rowIndex, int columnIndex) {
         super(content, rowIndex, columnIndex);
     }
 
     public ExcelRichCell(
-            ExcelContent content, int rowIndex, int columnIndex,
+            IExcelContent content, int rowIndex, int columnIndex,
             int rowSpan, int columnSpan) {
         super(content, rowIndex, columnIndex, rowSpan, columnSpan);
     }

@@ -1,24 +1,28 @@
 package org.dreamcat.vendor.excel.content;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 
 /**
  * Create by tuke on 2020/7/21
  */
-@Getter
-@Setter
-@EqualsAndHashCode(callSuper = true)
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExcelNumericContent extends ExcelContent {
+public class ExcelNumericContent implements IExcelContent {
     private double value;
 
     @Override
-    public String getText() {
+    public void fill(Cell cell) {
+        cell.setCellType(CellType.NUMERIC);
+        cell.setCellValue(value);
+    }
+
+    @Override
+    public String toString() {
         long round = Math.round(value);
         if (Math.abs(value - round) < Double.MIN_NORMAL) {
             return Long.toString(round);
@@ -28,5 +32,4 @@ public class ExcelNumericContent extends ExcelContent {
         }
         return String.format("%.8g", value);
     }
-
 }

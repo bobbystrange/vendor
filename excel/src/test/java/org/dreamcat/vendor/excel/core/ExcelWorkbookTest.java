@@ -23,7 +23,7 @@ public class ExcelWorkbookTest {
         sheet.getCells().add(new ExcelCell(new ExcelStringContent("C4"), 3, 2));
         sheet.getCells().add(new ExcelCell(new ExcelStringContent("D4"), 3, 3));
 
-        var book = new ExcelWorkbook();
+        var book = new ExcelWorkbook<ExcelSheet>();
         book.getSheets().add(sheet);
         book.writeTo("/Users/tuke/Downloads/book.xlsx");
     }
