@@ -3,6 +3,7 @@ package org.dreamcat.vendor.excel.core;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.dreamcat.vendor.excel.style.ExcelFont;
 import org.dreamcat.vendor.excel.style.ExcelStyle;
@@ -21,6 +22,10 @@ public interface IExcelWorkbook<T extends IExcelSheet> extends Iterable<T> {
     ExcelStyle getDefaultStyle();
 
     ExcelFont getDefaultFont();
+
+    default SXSSFWorkbook toWorkbookWithBigGrid() {
+        return toWorkbook(new SXSSFWorkbook());
+    }
 
     default XSSFWorkbook toWorkbook() {
         return toWorkbook(new XSSFWorkbook());

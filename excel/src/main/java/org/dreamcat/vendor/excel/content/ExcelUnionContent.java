@@ -10,6 +10,7 @@ public class ExcelUnionContent implements IExcelContent {
     private final ExcelStringContent stringContent;
     private final ExcelNumericContent numericContent;
     private final ExcelBooleanContent booleanContent;
+    private transient IExcelContent rawContent;
     private transient Class type;
 
     protected ExcelUnionContent() {
@@ -48,6 +49,11 @@ public class ExcelUnionContent implements IExcelContent {
         this.type = ExcelBooleanContent.class;
     }
 
+    public void setRawContent(IExcelContent rawContent) {
+        this.rawContent = rawContent;
+        this.type = IExcelContent.class;
+    }
+
     @Override
     public void fill(Cell cell) {
         if (type.equals(ExcelStringContent.class)) {
@@ -56,6 +62,8 @@ public class ExcelUnionContent implements IExcelContent {
             numericContent.fill(cell);
         } else if (type.equals(ExcelBooleanContent.class)) {
             booleanContent.fill(cell);
+        } else if (rawContent != null) {
+            rawContent.fill(cell);
         }
     }
 }
