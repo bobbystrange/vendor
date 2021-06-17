@@ -1,8 +1,8 @@
 package org.dreamcat.vendor.weixin;
 
-import com.google.gson.annotations.SerializedName;
-import org.dreamcat.common.bean.BeanMapUtil;
+import org.dreamcat.common.hc.gson.GsonUtil;
 import org.dreamcat.common.hc.okhttp.RetrofitUtil;
+import org.dreamcat.common.util.CollectionUtil;
 import org.dreamcat.common.util.UrlUtil;
 import org.dreamcat.vendor.weixin.api.IWXMPComponent;
 import org.dreamcat.vendor.weixin.mp.WXMPRequest;
@@ -21,7 +21,6 @@ import java.util.Map;
  * Create by tuke on 2019-05-27
  */
 public class WXMPComponent implements IWXMPComponent {
-
     private final WXMPRequest wxmpRequest;
 
     public WXMPComponent() {
@@ -31,7 +30,7 @@ public class WXMPComponent implements IWXMPComponent {
 
     @Override
     public String concatCodeUrl(CodeQuery query) {
-        Map<String, Object> queryMap = BeanMapUtil.toMap(query, SerializedName.class);
+        Map<String, Object> queryMap = GsonUtil.toMap(query);
         queryMap.put("response_type", "code");
 
         return UrlUtil.concatUrl(
@@ -44,14 +43,14 @@ public class WXMPComponent implements IWXMPComponent {
 
     @Override
     public Oauth2AccessTokenView getOauth2AccessToken(Oauth2AccessTokenQuery query, String componentAccessToken) {
-        Map<String, String> queryMap = BeanMapUtil.toProps(query);
+        Map<String, String> queryMap = CollectionUtil.toProps(GsonUtil.toMap(query));
         queryMap.put("grant_type", "authorization_code");
         return RetrofitUtil.unwrap(wxmpRequest.getOauth2AccessToken(queryMap));
     }
 
     @Override
     public Oauth2AccessTokenView refreshOauth2AccessToken(RefreshOauth2AccessTokenQuery query, String componentAccessToken) {
-        Map<String, String> queryMap = BeanMapUtil.toProps(query, SerializedName.class);
+        Map<String, String> queryMap = CollectionUtil.toProps(GsonUtil.toMap(query));
         queryMap.put("component_access_token", componentAccessToken);
         return RetrofitUtil.unwrap(wxmpRequest.getOauth2AccessToken(queryMap));
     }

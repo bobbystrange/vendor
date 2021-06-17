@@ -3,4 +3,4 @@ rootProject.name = 'vendor'
 include "cdn"
 include 'weixin'
 include 'oauth2'
-include 'excel'
+include 'zhugeio'
