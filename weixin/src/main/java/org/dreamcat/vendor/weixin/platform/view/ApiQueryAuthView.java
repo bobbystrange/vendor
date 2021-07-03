@@ -9,6 +9,7 @@ import org.dreamcat.vendor.weixin.platform.core.AuthorizationInfo;
  */
 @Data
 public class ApiQueryAuthView {
+
     @SerializedName("authorization_info")
     private AuthorizationInfo authorization_info;
 }

@@ -11,6 +11,7 @@ import org.dreamcat.vendor.weixin.common.CommonView;
 @Getter
 @Setter
 public class SendTemplateMessageView extends CommonView {
+
     @SerializedName("msgid")
     private long messageId;
 }

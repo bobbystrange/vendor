@@ -10,6 +10,7 @@ import org.dreamcat.common.hc.xstream.XStreamCDATA;
 @Data
 @XStreamAlias("xml")
 public class EncryptedMessage {
+
     // 为公众号的原始ID
     @XStreamCDATA
     @XStreamAlias("ToUserName")

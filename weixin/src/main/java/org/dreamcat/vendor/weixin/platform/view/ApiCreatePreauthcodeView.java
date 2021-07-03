@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class ApiCreatePreauthcodeView {
+
     @SerializedName("pre_auth_code")
     private String preAuthCode;
     // 600 sec.

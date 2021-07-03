@@ -1,0 +1,6 @@
+version '0.0.1'
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.qiniu/qiniu-java-sdk
+    implementation 'com.qiniu:qiniu-java-sdk:7.8.0'
+}

@@ -1,19 +1,20 @@
 package org.dreamcat.vendor.weixin.mp.view;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
-
 import java.util.List;
+import lombok.Data;
 
 /**
  * Create by tuke on 2019-05-28
  */
 public class GetAllPrivateTemplateView {
+
     @SerializedName("template_list")
     private List<Template> templates;
 
     @Data
     public static class Template {
+
         @SerializedName("template_id")
         private String templateId;
         private String title;

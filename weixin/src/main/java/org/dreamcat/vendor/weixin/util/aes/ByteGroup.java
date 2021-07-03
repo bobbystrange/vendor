@@ -3,6 +3,7 @@ package org.dreamcat.vendor.weixin.util.aes;
 import java.util.ArrayList;
 
 class ByteGroup {
+
     ArrayList<Byte> byteContainer = new ArrayList<Byte>();
 
     public byte[] toBytes() {

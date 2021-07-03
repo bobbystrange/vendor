@@ -1,15 +1,15 @@
 package org.dreamcat.vendor.weixin.platform.core;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
-
 import java.util.List;
+import lombok.Data;
 
 /**
  * Create by tuke on 2019-05-27
  */
 @Data
 public class AuthorizationInfo {
+
     // 授权方appid
     @SerializedName("authorizer_appid")
     private String authorizerAppId;

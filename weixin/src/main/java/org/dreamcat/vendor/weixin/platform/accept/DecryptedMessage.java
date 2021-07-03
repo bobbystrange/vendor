@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 @XStreamAlias("xml")
 public class DecryptedMessage {
+
     @XStreamAlias("ToUserName")
     private String toUserName;
 

@@ -11,6 +11,7 @@ import org.dreamcat.vendor.weixin.platform.core.ComponentAuthorizerPair;
 @Getter
 @Setter
 public class ApiSetAuthorizerOptionQuery extends ComponentAuthorizerPair {
+
     @SerializedName("option_name")
     private String optionName;
     @SerializedName("option_value")

@@ -1,8 +1,11 @@
 package org.dreamcat.vendor.weixin;
 
+import java.util.Map;
+import okhttp3.OkHttpClient;
+import org.dreamcat.common.bean.BeanUtil;
 import org.dreamcat.common.hc.gson.GsonUtil;
+import org.dreamcat.common.hc.okhttp.OkHttpUtil;
 import org.dreamcat.common.hc.okhttp.RetrofitUtil;
-import org.dreamcat.common.util.CollectionUtil;
 import org.dreamcat.common.util.UrlUtil;
 import org.dreamcat.vendor.weixin.api.IWXMPComponent;
 import org.dreamcat.vendor.weixin.mp.WXMPRequest;
@@ -15,17 +18,20 @@ import org.dreamcat.vendor.weixin.mp.view.GetIndustryView;
 import org.dreamcat.vendor.weixin.mp.view.Oauth2AccessTokenView;
 import org.dreamcat.vendor.weixin.mp.view.SendTemplateMessageView;
 
-import java.util.Map;
-
 /**
  * Create by tuke on 2019-05-27
  */
 public class WXMPComponent implements IWXMPComponent {
+
     private final WXMPRequest wxmpRequest;
 
     public WXMPComponent() {
+        this(OkHttpUtil.newClient());
+    }
+
+    public WXMPComponent(OkHttpClient client) {
         this.wxmpRequest = RetrofitUtil.getInstance4Json(
-                WXMPRequest.BASE_URL).create(WXMPRequest.class);
+                WXMPRequest.BASE_URL, client).create(WXMPRequest.class);
     }
 
     @Override
@@ -43,14 +49,15 @@ public class WXMPComponent implements IWXMPComponent {
 
     @Override
     public Oauth2AccessTokenView getOauth2AccessToken(Oauth2AccessTokenQuery query, String componentAccessToken) {
-        Map<String, String> queryMap = CollectionUtil.toProps(GsonUtil.toMap(query));
+        Map<String, String> queryMap = BeanUtil.toProps(GsonUtil.toMap(query));
         queryMap.put("grant_type", "authorization_code");
         return RetrofitUtil.unwrap(wxmpRequest.getOauth2AccessToken(queryMap));
     }
 
     @Override
-    public Oauth2AccessTokenView refreshOauth2AccessToken(RefreshOauth2AccessTokenQuery query, String componentAccessToken) {
-        Map<String, String> queryMap = CollectionUtil.toProps(GsonUtil.toMap(query));
+    public Oauth2AccessTokenView refreshOauth2AccessToken(RefreshOauth2AccessTokenQuery query,
+            String componentAccessToken) {
+        Map<String, String> queryMap = BeanUtil.toProps(GsonUtil.toMap(query));
         queryMap.put("component_access_token", componentAccessToken);
         return RetrofitUtil.unwrap(wxmpRequest.getOauth2AccessToken(queryMap));
     }

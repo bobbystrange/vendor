@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class ApiGetAuthorizerOptionView {
+
     @SerializedName("authorizer_appid")
     private String authorizerAppId;
     @SerializedName("option_name")

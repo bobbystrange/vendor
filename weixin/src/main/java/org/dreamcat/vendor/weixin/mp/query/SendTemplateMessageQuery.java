@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class SendTemplateMessageQuery {
+
     // 接收者openid
     @SerializedName("touser")
     private String toUser;
@@ -25,6 +26,7 @@ public class SendTemplateMessageQuery {
 
     @Data
     public static class MiniProgram {
+
         @SerializedName("appid")
         private String appId;
         // 所需跳转到小程序的具体页面路径，支持带参数,

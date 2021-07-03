@@ -1,15 +1,15 @@
 package org.dreamcat.vendor.weixin.platform.core;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
-
 import java.util.List;
+import lombok.Data;
 
 /**
  * Create by tuke on 2019-05-27
  */
 @Data
 public class AuthorizerInfo {
+
     @SerializedName("nick_name")
     private String nickName;
     @SerializedName("head_img")
@@ -59,6 +59,7 @@ public class AuthorizerInfo {
     // 公众号特有字段
 
     public static class ServiceTypeInfo {
+
         @SerializedName("id")
         private int id;
     }
@@ -66,11 +67,13 @@ public class AuthorizerInfo {
     // 小程序特有字段
 
     public static class VerifyTypeInfo {
+
         @SerializedName("id")
         private int id;
     }
 
     public static class AuthorizationInfo {
+
         // 授权方appid
         @SerializedName("authorization_appid")
         private String authorizationAppId;
@@ -104,6 +107,7 @@ public class AuthorizerInfo {
     }
 
     public static class MiniProgramInfo {
+
         // 小程序已设置的各个服务器域名
         @SerializedName("network")
         private Network network;
@@ -114,6 +118,7 @@ public class AuthorizerInfo {
     }
 
     public static class Network {
+
         @SerializedName("RequestDomain")
         private String requestDomain;
         @SerializedName("WsRequestDomain")
@@ -125,6 +130,7 @@ public class AuthorizerInfo {
     }
 
     public static class Category {
+
         @SerializedName("first")
         private String first;
         @SerializedName("second")

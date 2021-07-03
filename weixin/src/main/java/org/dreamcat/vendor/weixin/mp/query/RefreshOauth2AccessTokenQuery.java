@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Create by tuke on 2019-05-28
  */
 public class RefreshOauth2AccessTokenQuery {
+
     @SerializedName("appid")
     protected String appId;
     private String code;

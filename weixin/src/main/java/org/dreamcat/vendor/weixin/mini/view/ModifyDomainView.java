@@ -1,11 +1,10 @@
 package org.dreamcat.vendor.weixin.mini.view;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import org.dreamcat.vendor.weixin.common.CommonView;
-
-import java.util.List;
 
 /**
  * Create by tuke on 2019-05-28

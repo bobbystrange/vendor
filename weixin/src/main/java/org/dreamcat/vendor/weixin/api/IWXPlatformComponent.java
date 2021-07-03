@@ -38,7 +38,8 @@ public interface IWXPlatformComponent {
 
     default AuthorizationNotifyView decryptMessage(
             AuthorizationNotifyParameter parameter, String postData) throws AesException {
-        return decryptMessage(parameter.getMessageSignature(), parameter.getTimestamp(), parameter.getNonce(), postData);
+        return decryptMessage(parameter.getMessageSignature(), parameter.getTimestamp(), parameter.getNonce(),
+                postData);
     }
 
     // 2、获取第三方平台component_access_token
@@ -77,14 +78,16 @@ public interface IWXPlatformComponent {
 
     // 7、获取授权方的选项设置信息
     // POST https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_option?component_access_token=xxxx
-    ApiGetAuthorizerOptionView getApiGetAuthorizerOption(ApiGetAuthorizerOptionQuery query, String componentAccessToken);
+    ApiGetAuthorizerOptionView getApiGetAuthorizerOption(ApiGetAuthorizerOptionQuery query,
+            String componentAccessToken);
 
     // 8、设置授权方的选项信息
     // POST https://api.weixin.qq.com/cgi-bin/component/api_set_authorizer_option?component_access_token=xxxx
     // location_report(地理位置上报选项)	0无上报, 1进入会话时上报, 2每5s上报
     // voice_recognize（语音识别开关选项）	0关闭语音识别, 1开启语音识别
     // customer_service（多客服开关选项）	0关闭多客服, 1开启多客服
-    ApiSetAuthorizerOptionView getApiSetAuthorizerOption(ApiSetAuthorizerOptionQuery query, String componentAccessToken);
+    ApiSetAuthorizerOptionView getApiSetAuthorizerOption(ApiSetAuthorizerOptionQuery query,
+            String componentAccessToken);
 
     // 9、推送授权相关通知
     // 当公众号对第三方平台进行授权、取消授权、更新授权后，

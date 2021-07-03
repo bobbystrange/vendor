@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class ComponentAppid {
+
     @SerializedName("component_appid")
     protected String componentAppId;
 }

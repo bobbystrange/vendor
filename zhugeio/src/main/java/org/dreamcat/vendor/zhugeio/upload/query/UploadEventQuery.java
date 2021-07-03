@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Data
 public class UploadEventQuery {
+
     @SerializedName("ak")
     private String appKey;
     @SerializedName("dt")
@@ -37,6 +38,7 @@ public class UploadEventQuery {
 
     @Data
     public static class PushRequst {
+
         /**
          * 事件时间(unixtime)(必填,单位是毫秒，数字)
          */
@@ -134,6 +136,7 @@ public class UploadEventQuery {
 
     @Data
     public static class User {
+
         private String did;
     }
 

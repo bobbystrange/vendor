@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class ApiAuthorizerTokenView {
+
     @SerializedName("authorizer_access_token")
     private String authorizerAccessToken;
     // 有效期，为2小时

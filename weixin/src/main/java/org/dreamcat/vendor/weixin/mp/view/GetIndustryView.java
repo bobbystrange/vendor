@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class GetIndustryView {
+
     @SerializedName("primary_industry")
     private Industry primaryIndustry;
     @SerializedName("secondary_industry")
@@ -15,6 +16,7 @@ public class GetIndustryView {
 
     @Data
     public static class Industry {
+
         private String firstClass;
         private String secondClass;
     }

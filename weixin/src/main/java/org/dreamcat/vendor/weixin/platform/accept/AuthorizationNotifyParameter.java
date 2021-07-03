@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class AuthorizationNotifyParameter {
+
     public long timestamp;
     public long nonce;
     @SerializedName("encrypt_type")

@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ComponentAppPair extends ComponentAppid {
+
     @SerializedName("component_appsecret")
     protected String componentAppSecret;
 }

@@ -14,6 +14,7 @@ public class FuncInfo {
 
     @Data
     public static class FuncScopeCategory {
+
         public int id;
     }
 }

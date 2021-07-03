@@ -1,5 +1,6 @@
 package org.dreamcat.vendor.weixin.mp;
 
+import java.util.Map;
 import org.dreamcat.vendor.weixin.mp.query.SendTemplateMessageQuery;
 import org.dreamcat.vendor.weixin.mp.view.GetAllPrivateTemplateView;
 import org.dreamcat.vendor.weixin.mp.view.GetIndustryView;
@@ -11,8 +12,6 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
-
-import java.util.Map;
 
 /**
  * Create by tuke on 2019-05-27

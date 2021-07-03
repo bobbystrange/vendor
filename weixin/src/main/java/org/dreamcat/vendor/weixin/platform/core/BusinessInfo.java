@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class BusinessInfo {
+
     @SerializedName("open_store")
     private int openStore;
     @SerializedName("open_scan")

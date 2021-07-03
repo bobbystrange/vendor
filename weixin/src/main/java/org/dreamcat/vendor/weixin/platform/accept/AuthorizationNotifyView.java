@@ -12,6 +12,7 @@ import org.dreamcat.common.hc.xstream.XStreamCDATA;
 @Data
 @XStreamAlias("xml")
 public class AuthorizationNotifyView {
+
     @XStreamCDATA
     @XStreamAlias("AppId")
     public String appId;

@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CommonView {
+
     //  { "errcode":0, "errmsg":"ok" }
     @SerializedName("errcode")
     private int errorCode;

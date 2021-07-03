@@ -1,22 +1,22 @@
 package org.dreamcat.vendor.zhugeio;
 
-import org.dreamcat.common.hc.gson.GsonUtil;
-import org.dreamcat.vendor.zhugeio.upload.query.UploadEventQuery;
-import org.dreamcat.vendor.zhugeio.upload.result.UploadEventResult;
-import org.junit.Before;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.net.URL;
 import java.util.Properties;
+import org.dreamcat.common.hc.gson.GsonUtil;
+import org.dreamcat.vendor.zhugeio.upload.query.UploadEventQuery;
+import org.dreamcat.vendor.zhugeio.upload.result.UploadEventResult;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Create by tuke on 2020/10/22
  */
 public class ZhugeIOComponentTest {
+
     private ZhugeIOComponent zhugeIOComponent;
 
     @Before
@@ -27,7 +27,7 @@ public class ZhugeIOComponentTest {
         File projectDir = new File(url.getFile())
                 .getParentFile().getParentFile().getParentFile().getParentFile();
         File localFile = new File(projectDir, "local.properties");
-        try(Reader reader = new FileReader(localFile)) {
+        try (Reader reader = new FileReader(localFile)) {
             properties.load(reader);
         }
         String appKey = properties.getProperty("zhugeio_app_key");

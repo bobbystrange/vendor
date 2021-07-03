@@ -1,10 +1,12 @@
 package org.dreamcat.vendor.weixin;
 
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.OkHttpClient;
+import org.dreamcat.common.hc.okhttp.OkHttpUtil;
 import org.dreamcat.common.hc.okhttp.RetrofitUtil;
 import org.dreamcat.common.hc.xstream.XStreamUtil;
 import org.dreamcat.common.util.UrlUtil;
-import org.dreamcat.common.x.asm.BeanMapUtil;
+import org.dreamcat.common.x.bean.BeanMapUtil;
 import org.dreamcat.vendor.weixin.api.IWXPlatformComponent;
 import org.dreamcat.vendor.weixin.common.AppId;
 import org.dreamcat.vendor.weixin.common.CommonView;
@@ -47,8 +49,12 @@ public class WXPlatformComponent extends ComponentAppPair implements IWXPlatform
     private String encodingAesKey;
 
     public WXPlatformComponent() {
+        this(OkHttpUtil.newClient());
+    }
+
+    public WXPlatformComponent(OkHttpClient client) {
         wxJsonRequest = RetrofitUtil.getInstance4Json(
-                WXPlatformRequest.BASE_URL).create(WXPlatformRequest.class);
+                WXPlatformRequest.BASE_URL, client).create(WXPlatformRequest.class);
     }
 
     public WXPlatformComponent(
@@ -110,19 +116,22 @@ public class WXPlatformComponent extends ComponentAppPair implements IWXPlatform
     }
 
     @Override
-    public ApiGetAuthorizerInfoView getApiGetAuthorizerInfo(ApiGetAuthorizerInfoQuery query, String componentAccessToken) {
+    public ApiGetAuthorizerInfoView getApiGetAuthorizerInfo(ApiGetAuthorizerInfoQuery query,
+            String componentAccessToken) {
         FastCopyUtil.copy(this, query);
         return RetrofitUtil.unwrap(wxJsonRequest.getApiGetAuthorizerInfo(query, componentAccessToken));
     }
 
     @Override
-    public ApiGetAuthorizerOptionView getApiGetAuthorizerOption(ApiGetAuthorizerOptionQuery query, String componentAccessToken) {
+    public ApiGetAuthorizerOptionView getApiGetAuthorizerOption(ApiGetAuthorizerOptionQuery query,
+            String componentAccessToken) {
         FastCopyUtil.copy(this, query);
         return RetrofitUtil.unwrap(wxJsonRequest.getApiGetAuthorizerOption(query, componentAccessToken));
     }
 
     @Override
-    public ApiSetAuthorizerOptionView getApiSetAuthorizerOption(ApiSetAuthorizerOptionQuery query, String componentAccessToken) {
+    public ApiSetAuthorizerOptionView getApiSetAuthorizerOption(ApiSetAuthorizerOptionQuery query,
+            String componentAccessToken) {
         FastCopyUtil.copy(this, query);
         return RetrofitUtil.unwrap(wxJsonRequest.getApiSetAuthorizerOption(query, componentAccessToken));
     }

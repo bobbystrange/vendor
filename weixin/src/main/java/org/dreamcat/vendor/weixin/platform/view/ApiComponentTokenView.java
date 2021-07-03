@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class ApiComponentTokenView {
+
     @SerializedName("component_access_token")
     private String componentAccessToken;
     // 7200 sec.

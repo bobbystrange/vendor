@@ -1,23 +1,23 @@
 package org.dreamcat.vendor.zhugeio.upload.result;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
-
 import java.util.HashMap;
 import java.util.Map;
+import lombok.Data;
 
 /**
  * Create by tuke on 2020/10/22
- *
+ * <p>
  * success but with warn
  * {
- *     "return_code":0,
- *     "return_message":"success",
- *     "warn_did":"did is null, will have some impact on statistics"
+ * "return_code":0,
+ * "return_message":"success",
+ * "warn_did":"did is null, will have some impact on statistics"
  * }
  */
 @Data
 public class UploadEventResult {
+
     private static final String RETURN_CODE = "return_code";
     private static final String RETURN_MESSAGE = "return_message";
     private static final String WARN_PREFIX = "warn_";
@@ -52,4 +52,4 @@ public class UploadEventResult {
         });
         return result;
     }
- }
+}

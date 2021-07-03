@@ -11,6 +11,7 @@ import org.dreamcat.vendor.weixin.platform.core.ComponentAppid;
 @Getter
 @Setter
 public class BindComponentQuery extends ComponentAppid {
+
     private final String action = "bindcomponent";
     @SerializedName("no_scan")
     private String noScan;

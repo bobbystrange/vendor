@@ -1,0 +1,6 @@
+version '0.0.1'
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss
+    implementation "com.aliyun.oss:aliyun-sdk-oss:3.13.0"
+}

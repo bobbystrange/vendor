@@ -8,14 +8,13 @@
 
 package org.dreamcat.vendor.weixin.util.aes;
 
+import java.io.StringReader;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.StringReader;
 
 /**
  * XMLParse class
@@ -29,7 +28,6 @@ class XMLParse {
      *
      * @param xmltext 待提取的xml字符串
      * @return 提取出的加密消息字符串
-     * @throws AesException
      */
     public static Object[] extract(String xmltext) throws AesException {
         Object[] result = new Object[3];

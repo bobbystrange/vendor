@@ -11,6 +11,7 @@ import org.dreamcat.vendor.weixin.platform.core.ComponentAppid;
 @Getter
 @Setter
 public class LoginPageQuery extends ComponentAppid {
+
     @SerializedName("pre_auth")
     private String preAuth;
     @SerializedName("redirect_uri")

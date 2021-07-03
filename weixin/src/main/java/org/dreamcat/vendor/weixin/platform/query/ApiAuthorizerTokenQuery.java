@@ -11,6 +11,7 @@ import org.dreamcat.vendor.weixin.platform.core.ComponentAuthorizerPair;
 @Getter
 @Setter
 public class ApiAuthorizerTokenQuery extends ComponentAuthorizerPair {
+
     @SerializedName("authorizer_refresh_token")
     private String authorizerRefreshToken;
 }

@@ -11,6 +11,7 @@ import org.dreamcat.vendor.weixin.platform.core.ComponentAppPair;
 @Getter
 @Setter
 public class ApiComponentTokenQuery extends ComponentAppPair {
+
     @SerializedName("component_verify_ticket")
     private String componentVerifyTicket;
 }

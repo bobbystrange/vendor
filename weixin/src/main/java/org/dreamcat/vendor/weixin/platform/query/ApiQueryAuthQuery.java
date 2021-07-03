@@ -11,6 +11,7 @@ import org.dreamcat.vendor.weixin.platform.core.ComponentAppid;
 @Getter
 @Setter
 public class ApiQueryAuthQuery extends ComponentAppid {
+
     @SerializedName("authorization_code")
     private String authorizationCode;
 }

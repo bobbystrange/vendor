@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CodeQuery {
+
     @SerializedName("appid")
     protected String appId;
     @SerializedName("redirect_uri")

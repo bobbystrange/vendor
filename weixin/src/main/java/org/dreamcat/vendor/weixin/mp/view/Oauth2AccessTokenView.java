@@ -11,6 +11,7 @@ import org.dreamcat.vendor.weixin.common.CommonView;
 @Getter
 @Setter
 public class Oauth2AccessTokenView extends CommonView {
+
     @SerializedName("access_token")
     private String accessToken;
     @SerializedName("expires_in")

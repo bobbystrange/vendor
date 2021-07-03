@@ -1,5 +1,6 @@
 package org.dreamcat.vendor.zhugeio;
 
+import java.util.Map;
 import okhttp3.logging.HttpLoggingInterceptor;
 import org.dreamcat.common.hc.okhttp.OkHttpUtil;
 import org.dreamcat.common.hc.okhttp.RetrofitUtil;
@@ -8,12 +9,11 @@ import org.dreamcat.vendor.zhugeio.upload.ZhugeIOUploadRequest;
 import org.dreamcat.vendor.zhugeio.upload.query.UploadEventQuery;
 import org.dreamcat.vendor.zhugeio.upload.result.UploadEventResult;
 
-import java.util.Map;
-
 /**
  * Create by tuke on 2020/10/22
  */
 public class ZhugeIOComponent implements IZhugeIOComponent {
+
     private final String appKey;
     private final ZhugeIOUploadRequest uploadRequest;
 
